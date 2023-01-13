@@ -1,0 +1,601 @@
+
+Agency
+ agency_id
+ location_id
+
+Feedback System
+  booking_id
+
+Booking
+ booking_id
+ agency_id
+ customer_id
+
+Location
+ location_id
+
+Employee
+ employee_id
+ location_id
+
+
+Bridging entity
+Employee address
+ employee_id
+ address_id
+
+Address
+ address_id
+
+Customer
+ customer_id
+
+Payment
+ payment_id
+ booking_id
+
+Service bookings
+ booking_id
+ service_id
+
+Service
+ service_id
+
+Hotel
+ hotel_id
+ service_id
+
+Airline
+ airline_id
+ service_id
+
+Railway
+ railway_id
+ service_id
+
+Customer Address
+  customer_id
+  address_id
+
+Payroll
+ Employee_id
+ payroll_date
+ incentive_type
+
+Incentive
+ Incentive_type
+
+
+Offer
+ offer_id
+
+Customer Offer
+ customer_id
+ offer_id
+
+Railway
+ railway_id
+ service_id
+
+Tour
+ tour_id
+ service_id
+
+
+HOTEL NATIONAL BOOKING SYSTEM
+
+RoomStyle
+ standard
+ deluxe
+ family suite
+ business suite
+
+PaymentStatus
+ unpaid
+ pending
+ completed
+ failed
+ declined
+ cancelled
+ abandoned
+ settling
+ settled
+ refunded
+
+RoomStatus
+ Available
+ Reserved
+ Occupied
+ NotAvailable
+ BeingServiced
+ Other
+
+BookingStatus
+ Requested
+ Pending
+ Condfirmed
+ Checked-in
+ Checked-out
+ Canceled
+ Abandoned
+
+AccountStatus
+ Active
+ Closed
+ Cancelled
+ Blacklisted
+
+AccountType
+ Member
+ Guest (non-member)
+ Manager
+ Receptionist
+
+Address
+ streetAddress:
+ city:
+ state:
+ zipcode
+ country
+
+
+Business Models In Travel Distribution
+Travel Providers
+  Airline
+  Hotel
+  Car rental
+  Cruise Liner
+
+city
+id
+city_name
+postal_code
+country_id
+
+country
+id
+country_name
+
+
+
+FLIGHT
+flight_id
+airline_id
+airline_name
+from_location
+to_location
+departure_time
+arrival_time
+duration
+total_seats
+
+FLIGHT_DETAILS
+flight_id
+flight_departure_date
+
+CREDIT_CARD_DETAILS
+profile_id
+card_number
+card_type
+expiration_month
+expiration_year
+
+TICKET_INFO
+ticket_id
+profile_id
+flight_id
+flight_departure_date
+status
+
+PASSENGER_PROFILE
+profile_id
+password
+first_name
+last_name
+address
+tel_no
+email_id
+
+
+
+COMPANY
+id
+comapany_name
+VAT_ID
+email
+city_id
+company_address
+details
+is_active
+
+CITY
+id
+city_name
+postal_code
+country_id
+
+
+ROOM_TYPE
+id
+type_name
+
+ROOM
+id
+room_name
+description
+hotel_id
+room_type_id
+current_price
+
+HOTEL
+id
+hotel_name
+description
+company_id
+city_id
+category_id
+is_active
+
+
+CATEGORY
+id
+category_name
+
+
+
+RESERVATION
+
+reservation_status_catalog
+id
+status_name
+
+reservation_status_events
+id
+reservation_id
+reservation_status_catalog_id
+details
+ts_created
+
+reservation
+id
+guest_id
+guest_id
+start_date
+end_date
+ts_created
+ts_updated
+discount_percent
+total_price
+
+synchronization
+id
+reservation_id
+channel_id
+message_event
+message_received
+ts
+
+room_reserved
+id
+reservation_id
+room_id
+price
+
+
+room
+id
+room_name
+description
+description
+hotel_id
+room_type_id
+current_price
+
+channel_used
+room_id
+channel_id
+
+channel
+id
+channel_name
+details
+
+
+GUESTS
+reservation
+id
+guest_id
+start_date
+end_date
+ts_created
+ts_updated
+discount_percent
+total_price
+
+invoice_guest
+id
+guest_id
+reservation_id
+invoice_amount
+ts_issued
+ts_paid
+ts_canceled
+
+guest
+id
+first_name
+last_name
+email
+phone
+address
+details
+
+
+
+E-COMMERCE
+customers
+customer_id
+organisation_or_person
+organisation_name
+gender
+first_name
+middle_name
+last_name
+email_address
+login_name
+login_password
+phone_number
+address_line_1
+address_line_2
+address_line_3
+address_line_4
+town_city
+country
+country
+
+Orders
+order_id
+customer_id
+order_status_code
+data_order_placed
+order_details
+
+Shipments
+shipment_id
+order_id
+invoice_number
+shipment_tracing_number
+shipment_date
+other_shipment_details
+
+Invoices
+invoice_number
+order_id
+invoice_status_code
+invoice_date
+invoice_details
+
+Order_items
+order_item_id
+product_id
+order_id
+order_item_status_code
+order_item_quantity
+order_item_price
+RMA_number
+RMA_issued_by
+RMA_issued_date
+other_order_item_details
+
+Ref_invoice_status_codes
+invoice_status_code
+invoice_status_description
+e.g Issued, Paid
+
+Payments
+payment_id
+invoice_number
+payment_date
+payment_amount
+
+Shipment_items
+shipment_id
+order_item_id
+
+Ref_Order_Item_Staus_Codes
+order_item_status_code
+order_item_status_description
+e.g Delivered, Out of Stock
+
+Ref_Product_Type
+product_type_code
+parent_product_type_code
+product_type_description
+e.g Book, CD
+
+Products
+product_id
+product_type_code
+return_merchantes_authorization_nr
+product_name
+product_price
+product_color
+product_size
+product_description
+other_product_details
+
+Ref_Payment_Methods
+payment_method_code
+payment_method_description
+-e.g CC=Credit Card.
+
+Customer_Payment_Methods
+customer_payment_id
+customer_id
+payment_method_code
+credit_card_number
+payment_method_details
+
+
+Ref_Order_Status_Codes
+order_status_code
+order_status_description
+ e.g Cancelled, Completed
+
+
+
+AIRLINE RESERVATION DATA MODEL
+Booking_Agents
+agent_id
+agent_name
+agent_details
+
+Passengers
+passenger_id
+first_name
+second_name
+last_name
+phone_number
+email_address
+address_lines
+city
+state_province_country
+country
+other_passenger_details
+
+Itinerary_Reservations
+reservation_id
+agent_id
+passenger_id
+reservation_status_code
+ticket_type_code
+travel_class_code
+date_reservation_made
+number_in_party
+
+Payments
+payment_id
+payment_status_code
+payment_date
+payment_amount
+
+Reservation_Payments
+reservation_id
+payment_id
+
+Airports
+airport_code
+airport_name
+airport_location
+other_details
+
+Legs
+leg_id
+flight_number
+origin_airport_code
+destination_airport_code
+actual_departure_time
+actual_arrival_time
+
+Itinerary_Legs
+reservation_id
+leg_id
+
+Flight_Schedules
+flight_number
+airline_code
+usual_aircraft_type_code
+origin_airport_code
+destination_airport_code
+departure_date_time
+arrival_date_time
+
+Ref_Calendar
+day_date
+day_number
+business_day_yn
+
+Flight_Costs
+fligt_number
+aircraft_type_code
+valid_from_date
+valid_to_date
+flight_cost
+
+
+
+Airline Reservation Data
+Airports
+airport_code
+airport_name
+airport_location
+other_details
+
+Ref_Aircraft_Types
+aircraft_type_code
+aircraft_type_name
+aircraft_type_capacity
+
+Ref_Airlines
+airline_code
+airline_name
+airline_country
+
+Ref_Booking_Status
+booking_status_code
+booking_status_description
+
+
+Booking_Agents
+agent_id
+agent_name
+agent_details
+
+Airline_Reservations_Data_Mart
+fact_id
+agent_id
+aircraft_type_code
+airline_code
+airport_code
+booking_status_code
+day_date
+flight_number
+payment_status_code
+reservation_status_code
+ticket_type_code
+travel_class_code
+total_amount
+total_count
+averages
+percentages
+
+Ref_Calendar
+day_date
+day_number
+business_day_in
+
+Ref_Travel_Classes
+travel_class_code
+travel_class_description
+
+Flight_Schedules
+flight_number
+airline_code
+usual_aircraft_type_code
+origin_airport_code
+destination_airport_code
+departure_date_time
+arrival_date_time
+
+Ref_Payment_Status
+payment_status_code
+payment_status_description
+
+Ref_Reservation_Status
+reservation_status_code
+reservation_status_description
+
+Ref_Ticket_Types
+ticket_type_code
+ticket_type_description
+
