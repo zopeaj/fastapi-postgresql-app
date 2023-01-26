@@ -1,10 +1,13 @@
 #! /usr/bin/bash
 
 # Let the DB start
-python backend/app/app/backend_pre_start.py
+python app/backend_pre_start.py
 
-# Run migrations
+# Run First migration
+alembic revision --autogenerate -m "First migration"
+
+# Run upgrade head
 alembic upgrade head
 
 # Create initial data in DB
-python backend/app/app/initial_data.py
+python app/initial_data.py

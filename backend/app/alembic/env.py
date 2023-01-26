@@ -1,9 +1,13 @@
-import os
 import sys
-
-sys.path.append(os.path.abspath("../fastapi-postgresql-app/backend/"))
+import os
+from dotenv import load_dotenv
+load_dotenv()
+path = os.environ["FILE_PATH"]
+sys.path.append(path)
 
 from app.app.db.base import Base
+
+print("-----------------------HELLO WORLD-----------------------")
 
 from logging.config import fileConfig
 
@@ -36,10 +40,12 @@ target_metadata = Base.metadata
 def get_url():
     user = os.getenv("POSTGRES_USER", "postgres")
     password = os.getenv("POSTGRES_PASSWORD", "admin1234")
-    server: os.getenv("POSTGRES_SERVER", "dataentry")
+    host = os.getenv("POSTGRES_SERVER", "localhost")
+    port = os.getenv("POSTGRES_PORT", "5432")
     db = os.getenv("POSTGRES_DB", "data")
-    return f"postgresql://{user}:{password}@{server}/{db}"
+    return f"postgresql://{user}:{password}@{host}:{port}/{db}"
 
+# postgresql://postgres:admin1234@localhost:5432/postgres
 
 
 def run_migrations_offline() -> None:
